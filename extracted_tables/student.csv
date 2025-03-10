@@ -1,0 +1,51 @@
+user_id,school_name,dept_name,njit_email_address,type
+151,Public Health,Department 4,zbayer@njit.edu, Graduate
+152,Biological Sciences,Department 3,kendall.rosenbaum@uc, Graduate
+153,English,Department 8,icarroll@njit.edu, Graduate
+154,Public Health,Department 4,lola.gerlach@njit.edu,Undergraduate
+155,Economics,Department 3,metz.greg@njit.edu,Undergraduate
+156,Economics,Department 3,junius03@njit.edu,Undergraduate
+157,Psychology,Department 3,keebler.elmore@njit.edu, Graduate
+158,Economics,Department 8,sydney.fritsch@njit.edu,Undergraduate
+159,Computer Science,Department 9,alba.bode@njit.edu,Undergraduate
+160,Earth Sciences,Department 9,emily92@njit.edu,Undergraduate
+161,English,Department 2,madisyn.hudson@njit.edu, Graduate
+162,Public Affairs,Department 5,bashirian.lily@njit.edu,Undergraduate
+163,Psychology,Department 3,ifritsch@njit.edu,Undergraduate
+164,Earth Sciences,Department 9,chadrick.mosciski@uc, Graduate
+165,Public Health,Department 5,boyle.hortense@njit.edu, Graduate
+166,Political Science,Department 3,considine.leora@njit.edu,Undergraduate
+167,Psychology,Department 7,watsica.hal@njit.edu,Undergraduate
+168,Earth Sciences,Department 9,tgerhold@njit.edu, Graduate
+169,Public Health,Department 9,delpha.homenick@njit.edu,Undergraduate
+170,Political Science,Department 9,sheila.bradtke@njit.edu, Graduate
+171,Economics,Department 8,zschroeder@njit.edu,Undergraduate
+172,English,Department 2,eliane82@njit.edu,Undergraduate
+173,Computer Science,Department 4,rick.doyle@njit.edu,Undergraduate
+174,Political Science,Department 9,lmraz@njit.edu, Graduate
+175,Business,Department 5,gudrun.kuhn@njit.edu,Undergraduate
+176,Business,Department 5,aufderhar.lourdes@uc, Graduate
+177,Psychology,Department 3,ubuckridge@njit.edu,Undergraduate
+178,Business,Department 5,zzulauf@njit.edu,Undergraduate
+179,Political Science,Department 4,keyon.gerlach@njit.edud, Graduate
+180,Chemistry,Department 7,ugoldner@njit.edu,Undergraduate
+181,Economics,Department 8,blangosh@njit.edu,Undergraduate
+182,Biological Sciences,Department 3,mike88@njit.edu,Undergraduate
+183,Public Health,Department 6,carroll.huel@njit.edu,Undergraduate
+184,Physical Therapy,Department 3,katheryn55@njit.edu,Undergraduate
+185,Chemistry,Department 7,jaylen11@njit.edu, Graduate
+186,Public Affairs,Department 2,jodie47@njit.edu, Graduate
+187,Biological Sciences,Department 3,paxton31@njit.edu, Graduate
+188,Political Science,Department 4,uriel86@njit.edu,Undergraduate
+189,History,Department 7,chadrick51@njit.edu,Undergraduate
+190,Economics,Department 5,keebler.ara@njit.edu,Undergraduate
+191,Physics,Department 3,annamarie.franecki@u,Undergraduate
+192,Computer Science,Department 2,yasmin.schumm@njit.edud, Graduate
+193,Physics,Department 3,justyn.gerhold@njit.edu,Undergraduate
+194,Public Health,Department 6,allene.murazik@njit.edu,Undergraduate
+195,Social Work,Department 9,xschneider@njit.edu,Undergraduate
+196,Business,Department 5,glen74@njit.edu, Graduate
+197,Economics,Department 5,parisian.cristopher@, Graduate
+198,English,Department 8,ibrakus@njit.edu,Undergraduate
+199,Political Science,Department 9,asa.kohler@njit.edu,Undergraduate
+200,Business,Department 5,bbahringer@njit.edu,Undergraduate
