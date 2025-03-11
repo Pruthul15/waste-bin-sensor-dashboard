@@ -43,7 +43,7 @@ JOIN wastebin ON wastebin.x BETWEEN building.boxLowX AND building.boxUpperX
               AND wastebin.y BETWEEN building.boxLowY AND building.boxUpperY
 GROUP BY building.name
 ORDER BY total_bins DESC
-LIMIT 1;
+LIMIT 5;
 """
 query4 = """
 SELECT 
@@ -56,14 +56,14 @@ FROM user
 JOIN locationobservation ON user.user_id = locationobservation.sensor_id
 GROUP BY user.name
 ORDER BY total_bins_used DESC
-LIMIT 1;
+LIMIT 5;
 """
 query6 = """
 SELECT loadobservation.sensor_id, SUM(loadobservation.weight) AS total_weight
 FROM loadobservation
 GROUP BY loadobservation.sensor_id
 ORDER BY total_weight DESC
-LIMIT 1;
+LIMIT 5;
 """
 
 # ✅ **Streamlit Dashboard UI**
