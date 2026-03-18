@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Waste Management — Pruthul Patel</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;}
+.banner{background:#1B3A5C;padding:24px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.banner h1{font-size:20px;font-weight:700;color:#fff;margin-bottom:3px;}
+.banner p{font-size:12px;color:#90CDF4;}
+.badges{display:flex;gap:8px;flex-wrap:wrap;}
+.badge{background:rgba(255,255,255,0.15);color:#fff;font-size:11px;padding:3px 10px;border-radius:20px;}
+.content{max-width:1200px;margin:0 auto;padding:20px;}
+.kgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px;}
+.kpi{background:#fff;border-radius:10px;padding:18px;border-left:4px solid #C0430A;box-shadow:0 1px 3px rgba(0,0,0,0.06);}
+.kl{font-size:10px;color:#888;text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px;}
+.kv{font-size:26px;font-weight:700;color:#1B3A5C;}
+.ks{font-size:10px;color:#aaa;margin-top:3px;}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px;}
+.row1{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:12px;}
+.card{background:#fff;border-radius:10px;padding:18px;box-shadow:0 1px 3px rgba(0,0,0,0.06);}
+.ct{font-size:13px;font-weight:600;color:#1B3A5C;margin-bottom:14px;}
+.vg{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.vb{border-radius:8px;padding:12px;text-align:center;}
+.vl{font-size:10px;font-weight:600;margin-bottom:4px;}
+.vv{font-size:22px;font-weight:700;}
+.vs{font-size:10px;margin-top:3px;opacity:.7;}
+.vred{background:#FFF5F5;}.vred .vl,.vred .vv{color:#C53030;}
+.vyel{background:#FFFFF0;}.vyel .vl,.vyel .vv{color:#B7791F;}
+.vblu{background:#EBF8FF;}.vblu .vl,.vblu .vv{color:#2B6CB0;}
+.vgrn{background:#F0FFF4;}.vgrn .vl,.vgrn .vv{color:#276749;}
+.br{display:flex;align-items:center;gap:8px;margin-bottom:7px;}
+.bl{font-size:11px;color:#666;width:65px;flex-shrink:0;text-align:right;}
+.bt{flex:1;background:#EEF0F3;border-radius:3px;height:18px;overflow:hidden;}
+.bf{height:100%;border-radius:3px;display:flex;align-items:center;padding-left:6px;}
+.btx{font-size:10px;font-weight:600;color:#fff;}
+.ig{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.ib{background:#F7FAFC;border-radius:8px;padding:12px;border-left:3px solid #C0430A;}
+.in{font-size:20px;font-weight:700;color:#C0430A;margin-bottom:3px;}
+.it{font-size:11px;color:#555;line-height:1.5;}
+.tabs{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap;}
+.tab{padding:5px 12px;border-radius:20px;font-size:11px;cursor:pointer;border:1.5px solid #CBD5E0;color:#555;background:#fff;}
+.tab.on{background:#1B3A5C;color:#fff;border-color:#1B3A5C;}
+.sb{display:none;}
+.sb.on{display:block;}
+pre{background:#1A202C;color:#A0E0C0;border-radius:8px;padding:14px;font-size:11px;line-height:1.7;overflow-x:auto;font-family:'Courier New',monospace;}
+.sc{color:#718096;}.sk{color:#76E4F7;}.sf{color:#F6AD55;}.ss{color:#68D391;}
+.footer{text-align:center;padding:16px;font-size:11px;color:#888;}
+.footer a{color:#1B3A5C;font-weight:600;text-decoration:none;}
+@media(max-width:700px){.kgrid{grid-template-columns:1fr 1fr;}.row2,.row3{grid-template-columns:1fr;}.ig{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="banner">
+  <div><h1>🗑️ Smart Waste Management System — Campus Analysis</h1><p>University IoT Smart Bin Database · CS 331 Database Systems · NJIT · MySQL · Python · AWS EC2</p></div>
+  <div class="badges"><span class="badge">MySQL 18 Tables</span><span class="badge">Python Pandas</span><span class="badge">AWS EC2+RDS</span><span class="badge">Streamlit</span><span class="badge">Pruthul Patel</span></div>
+</div>
+<div class="content">
+
+<div class="kgrid">
+  <div class="kpi"><div class="kl">Total Trash Events</div><div class="kv">49,932</div><div class="ks">ObjectRecognitionObservation</div></div>
+  <div class="kpi"><div class="kl">Smart Bins</div><div class="kv">150</div><div class="ks">50 Recycle · 50 Landfill · 50 Compost</div></div>
+  <div class="kpi"><div class="kl">Users Tracked</div><div class="kv">200</div><div class="ks">Students · Visitors · Faculty · Staff</div></div>
+  <div class="kpi"><div class="kl">Avg Bin Load</div><div class="kv">30,495</div><div class="ks">units avg weight · max 60,000</div></div>
+</div>
+
+<div class="row2">
+  <div class="card">
+    <div class="ct">🗑️ Trash Type Distribution</div>
+    <div style="position:relative;height:180px;"><canvas id="tc"></canvas></div>
+    <div style="display:flex;justify-content:center;gap:14px;margin-top:10px;flex-wrap:wrap;">
+      <span style="font-size:11px;display:flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:2px;background:#1D9E75;display:inline-block;"></span>Recycle 33.4%</span>
+      <span style="font-size:11px;display:flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:2px;background:#C0430A;display:inline-block;"></span>Compost 33.3%</span>
+      <span style="font-size:11px;display:flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:2px;background:#2980B9;display:inline-block;"></span>Landfill 33.3%</span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ct">⚠️ Trash Violations — Wrong Bin Events</div>
+    <div class="vg">
+      <div class="vb vred"><div class="vl">Wrong in Landfill</div><div class="vv">16,384</div><div class="vs">32.8% of events</div></div>
+      <div class="vb vyel"><div class="vl">Wrong in Compost</div><div class="vv">13,539</div><div class="vs">27.1% of events</div></div>
+      <div class="vb vblu"><div class="vl">Wrong in Recycle</div><div class="vv">8,894</div><div class="vs">17.8% of events</div></div>
+      <div class="vb vgrn"><div class="vl">✅ Correctly Disposed</div><div class="vv">11,115</div><div class="vs">Only 22.3% correct!</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="row2">
+  <div class="card">
+    <div class="ct">📅 Top 10 Busiest Days</div>
+    <div style="position:relative;height:200px;"><canvas id="dc"></canvas></div>
+  </div>
+  <div class="card">
+    <div class="ct">🏫 Events by Department</div>
+    <div class="br"><span class="bl">Dept 5</span><div class="bt"><div class="bf" style="width:100%;background:#C0430A;"><span class="btx">4,986</span></div></div></div>
+    <div class="br"><span class="bl">Dept 3</span><div class="bt"><div class="bf" style="width:81%;background:#C0430A;"><span class="btx">4,057</span></div></div></div>
+    <div class="br"><span class="bl">Dept 4</span><div class="bt"><div class="bf" style="width:67%;background:#1B3A5C;"><span class="btx">3,352</span></div></div></div>
+    <div class="br"><span class="bl">Dept 9</span><div class="bt"><div class="bf" style="width:56%;background:#1B3A5C;"><span class="btx">2,787</span></div></div></div>
+    <div class="br"><span class="bl">Dept 6</span><div class="bt"><div class="bf" style="width:49%;background:#2980B9;"><span class="btx">2,456</span></div></div></div>
+    <div class="br"><span class="bl">Dept 8</span><div class="bt"><div class="bf" style="width:43%;background:#2980B9;"><span class="btx">2,122</span></div></div></div>
+    <div class="br"><span class="bl">Dept 2</span><div class="bt"><div class="bf" style="width:25%;background:#1D9E75;"><span class="btx">1,246</span></div></div></div>
+    <div class="br"><span class="bl">Dept 7</span><div class="bt"><div class="bf" style="width:17%;background:#1D9E75;"><span class="btx">868</span></div></div></div>
+  </div>
+</div>
+
+<div class="row1">
+  <div class="card">
+    <div class="ct">🕐 Events by Hour — Campus Runs 24/7 (~2,000 events/hour)</div>
+    <div style="position:relative;height:160px;"><canvas id="hc"></canvas></div>
+  </div>
+</div>
+
+<div class="row3">
+  <div class="card">
+    <div class="ct">🔍 Q1 — Users at 2–3pm</div>
+    <div style="font-size:38px;font-weight:700;color:#1B3A5C;margin:6px 0;">75</div>
+    <div style="font-size:11px;color:#666;">distinct users via 3-table JOIN</div>
+    <div style="margin-top:10px;font-size:10px;color:#999;border-top:1px solid #eee;padding-top:8px;">Stevie · Alf · Evangeline · Elisa · Louisa · +70 more</div>
+  </div>
+  <div class="card">
+    <div class="ct">🏢 Q2 — Inside Bins (Visitors)</div>
+    <div style="font-size:38px;font-weight:700;color:#1B3A5C;margin:6px 0;">22</div>
+    <div style="font-size:11px;color:#666;">bins via spatial coordinate matching</div>
+    <div style="margin-top:10px;font-size:10px;color:#999;border-top:1px solid #eee;padding-top:8px;">Bin IDs: 2,4,7,8,12,13,17,18,34,53,55,59,60,64,66 +7 more</div>
+  </div>
+  <div class="card">
+    <div class="ct">🚫 Q3 — Wrong Recyclers</div>
+    <div style="font-size:38px;font-weight:700;color:#C0430A;margin:6px 0;">13</div>
+    <div style="font-size:11px;color:#666;">students — wrong trash in recycle bin</div>
+    <div style="margin-top:10px;font-size:10px;color:#999;border-top:1px solid #eee;padding-top:8px;">Evangeline · Serena · Florine · Lucius · Arjun · +8 more</div>
+  </div>
+</div>
+
+<div class="card" style="margin-bottom:12px;">
+  <div class="ct">💡 Key Insights Discovered</div>
+  <div class="ig">
+    <div class="ib"><div class="in">77.7%</div><div class="it">of all events were violations — wrong trash in wrong bin. Only 22.3% correctly disposed.</div></div>
+    <div class="ib"><div class="in">24/7</div><div class="it">Campus runs round the clock — ~2,000 events/hour. No peak time, sensors needed all day.</div></div>
+    <div class="ib"><div class="in">6×</div><div class="it">Dept 5 generates 6× more trash than Dept 7. Bin placement near Dept 5 should be prioritized.</div></div>
+    <div class="ib"><div class="in">51%</div><div class="it">Average bin is half full (30,495/60,000). Emptying schedule can be optimized to cut costs.</div></div>
+    <div class="ib"><div class="in">144</div><div class="it">Users exceeded 100 landfill events. Top user Cora had 3,063. Trigger now auto-logs violations.</div></div>
+    <div class="ib"><div class="in">22</div><div class="it">Inside bins found using spatial math — bin X,Y checked BETWEEN building corner coordinates.</div></div>
+  </div>
+</div>
+
+<div class="card" style="margin-bottom:12px;">
+  <div class="ct">💻 SQL Queries — Beginner to Intermediate</div>
+  <div class="tabs">
+    <button class="tab on" onclick="showQ('q1',this)">Q1 — Users</button>
+    <button class="tab" onclick="showQ('q2',this)">Q2 — Inside Bins</button>
+    <button class="tab" onclick="showQ('q4',this)">Q4 — Heavy Users</button>
+    <button class="tab" onclick="showQ('q5',this)">Q5 — RANK()</button>
+    <button class="tab" onclick="showQ('q6',this)">Q6 — View</button>
+    <button class="tab" onclick="showQ('q9',this)">Q9 — Trigger</button>
+  </div>
+  <div id="q1" class="sb on"><pre><span class="sc">-- Q1: Find users who used a bin between 2-3pm | Result: 75 users</span>
+<span class="sk">SELECT DISTINCT</span> u.name
+<span class="sk">FROM</span> User u, LocationSensor ls, LocationObservation lo
+<span class="sk">WHERE</span> u.user_id = ls.User_id
+<span class="sk">AND</span> ls.sensor_id = lo.sensor_id
+<span class="sk">AND</span> lo.timestamp >= <span class="ss">'2019-10-26 14:00:00'</span>
+<span class="sk">AND</span> lo.timestamp <= <span class="ss">'2019-10-26 15:00:00'</span>;</pre></div>
+  <div id="q2" class="sb"><pre><span class="sc">-- Q2: Inside bins used by Visitors | "Inside" = X,Y within building boundaries | Result: 22</span>
+<span class="sk">SELECT DISTINCT</span> wb.waste_bin_id, wb.X, wb.Y
+<span class="sk">FROM</span> WasteBin wb, Building b, ObjectRecognitionSensor ors,
+     ObjectRecognitionObservation oro, LocationObservation lo,
+     LocationSensor ls, Visitor v
+<span class="sk">WHERE</span> wb.X >= b.boxLowX <span class="sk">AND</span> wb.X <= b.boxUpperX
+<span class="sk">AND</span> wb.Y >= b.boxLowY <span class="sk">AND</span> wb.Y <= b.boxUpperY
+<span class="sk">AND</span> wb.waste_bin_id = ors.Waste_bin_id
+<span class="sk">AND</span> ors.sensor_id = oro.sensor_id
+<span class="sk">AND</span> lo.timestamp = oro.timestamp
+<span class="sk">AND</span> lo.sensor_id = ls.sensor_id
+<span class="sk">AND</span> ls.User_id = v.user_id
+<span class="sk">AND</span> oro.timestamp <span class="sk">BETWEEN</span> <span class="ss">'2019-10-26 14:00:00'</span> <span class="sk">AND</span> <span class="ss">'2019-10-26 15:00:00'</span>;</pre></div>
+  <div id="q4" class="sb"><pre><span class="sc">-- Q4: Users with more than 100 landfill events | Result: 144 users | Top: Cora 3,063</span>
+<span class="sk">SELECT</span> u.user_id, u.name, <span class="sf">COUNT</span>(*) <span class="sk">AS</span> total_events
+<span class="sk">FROM</span> User u, LocationSensor ls, LocationObservation lo,
+     ObjectRecognitionObservation oro, ObjectRecognitionSensor ors, LandfillBin lb
+<span class="sk">WHERE</span> u.user_id = ls.User_id
+<span class="sk">AND</span> ls.sensor_id = lo.sensor_id
+<span class="sk">AND</span> lo.timestamp = oro.timestamp
+<span class="sk">AND</span> oro.sensor_id = ors.sensor_id
+<span class="sk">AND</span> ors.Waste_bin_id = lb.waste_bin_id
+<span class="sk">GROUP BY</span> u.user_id, u.name
+<span class="sk">HAVING</span> total_events > 100
+<span class="sk">ORDER BY</span> total_events <span class="sk">DESC</span>;</pre></div>
+  <div id="q5" class="sb"><pre><span class="sc">-- Q5: Top 10 by compost weight WITH RANK() window function</span>
+<span class="sk">SELECT</span> user_id, <span class="sf">ROUND</span>(total_weight,0) <span class="sk">AS</span> total_weight,
+       <span class="sf">RANK</span>() <span class="sk">OVER</span> (<span class="sk">ORDER BY</span> total_weight <span class="sk">DESC</span>) <span class="sk">AS</span> user_rank
+<span class="sk">FROM</span> (
+    <span class="sk">SELECT</span> u.user_id, <span class="sf">SUM</span>(lob.Weight) <span class="sk">AS</span> total_weight
+    <span class="sk">FROM</span> User u, LocationSensor ls, LocationObservation lo,
+         ObjectRecognitionObservation oro, ObjectRecognitionSensor ors,
+         CompostBin cb, LoadSensor lsen, LoadObservation lob
+    <span class="sk">WHERE</span> u.user_id = ls.User_id
+    <span class="sk">AND</span> ls.sensor_id = lo.sensor_id
+    <span class="sk">AND</span> lo.timestamp = oro.timestamp
+    <span class="sk">AND</span> oro.sensor_id = ors.sensor_id
+    <span class="sk">AND</span> ors.Waste_bin_id = cb.waste_bin_id
+    <span class="sk">AND</span> cb.waste_bin_id = lsen.Waste_bin_id
+    <span class="sk">AND</span> lsen.sensor_id = lob.sensor_id
+    <span class="sk">GROUP BY</span> u.user_id
+) <span class="sk">AS</span> ranked_users
+<span class="sk">ORDER BY</span> user_rank <span class="sk">LIMIT</span> 10;</pre></div>
+  <div id="q6" class="sb"><pre><span class="sc">-- Q6: App Users VIEW — role-based access, only available inside bins</span>
+<span class="sk">CREATE VIEW</span> App_Users <span class="sk">AS</span>
+<span class="sk">SELECT</span> wb.waste_bin_id, wb.X, wb.Y,
+       <span class="sk">CASE</span>
+           <span class="sk">WHEN</span> rb.waste_bin_id <span class="sk">IS NOT NULL THEN</span> <span class="ss">'Recycle'</span>
+           <span class="sk">WHEN</span> lb.waste_bin_id <span class="sk">IS NOT NULL THEN</span> <span class="ss">'LandFill'</span>
+           <span class="sk">WHEN</span> cb.waste_bin_id <span class="sk">IS NOT NULL THEN</span> <span class="ss">'Compost'</span>
+       <span class="sk">END AS</span> type_of_bin
+<span class="sk">FROM</span> WasteBin wb, Building b
+<span class="sk">LEFT JOIN</span> RecycleBin rb <span class="sk">ON</span> wb.waste_bin_id = rb.waste_bin_id
+<span class="sk">LEFT JOIN</span> LandfillBin lb <span class="sk">ON</span> wb.waste_bin_id = lb.waste_bin_id
+<span class="sk">LEFT JOIN</span> CompostBin cb <span class="sk">ON</span> wb.waste_bin_id = cb.waste_bin_id
+<span class="sk">WHERE</span> wb.X >= b.boxLowX <span class="sk">AND</span> wb.X <= b.boxUpperX
+<span class="sk">AND</span> wb.Y >= b.boxLowY <span class="sk">AND</span> wb.Y <= b.boxUpperY;</pre></div>
+  <div id="q9" class="sb"><pre><span class="sc">-- Q9: BEFORE INSERT trigger — bad sensor readings → NULL automatically</span>
+<span class="sk">CREATE TRIGGER</span> check_erroneous_load
+<span class="sk">BEFORE INSERT ON</span> LoadObservation
+<span class="sk">FOR EACH ROW</span>
+<span class="sk">BEGIN</span>
+    <span class="sk">DECLARE</span> last_weight <span class="sk">INT</span>;
+    <span class="sk">DECLARE</span> last_time <span class="sk">DATETIME</span>;
+    <span class="sk">DECLARE</span> has_null <span class="sk">INT</span>;
+
+    <span class="sk">SELECT</span> <span class="sf">COUNT</span>(*) <span class="sk">INTO</span> has_null <span class="sk">FROM</span> LoadObservation
+    <span class="sk">WHERE</span> sensor_id = NEW.sensor_id <span class="sk">AND</span> Weight <span class="sk">IS NULL</span>;
+
+    <span class="sk">SELECT</span> Weight, timestamp <span class="sk">INTO</span> last_weight, last_time
+    <span class="sk">FROM</span> LoadObservation <span class="sk">WHERE</span> sensor_id = NEW.sensor_id
+    <span class="sk">ORDER BY</span> timestamp <span class="sk">DESC LIMIT</span> 1;
+
+    <span class="sk">IF</span> has_null > 0 <span class="sk">THEN</span>
+        <span class="sk">SET</span> NEW.Weight = <span class="sk">NULL</span>;
+    <span class="sk">ELSEIF</span> <span class="sf">ABS</span>(NEW.Weight - last_weight) > 1000
+        <span class="sk">AND</span> <span class="sf">DATEDIFF</span>(NEW.timestamp, last_time) <= 1 <span class="sk">THEN</span>
+        <span class="sk">SET</span> NEW.Weight = <span class="sk">NULL</span>;
+    <span class="sk">END IF</span>;
+<span class="sk">END</span>;</pre></div>
+</div>
+
+<div class="footer">
+  Built by <a href="https://linkedin.com/in/pruthulpatel">Pruthul Patel</a> &nbsp;·&nbsp;
+  <a href="https://github.com/Pruthul15/waste-bin-sensor-dashboard">GitHub Repo</a> &nbsp;·&nbsp;
+  MS Business & Information Systems · NJIT &nbsp;·&nbsp;
+  <a href="https://linkedin.com/in/pruthulpatel">linkedin.com/in/pruthulpatel</a>
+</div>
+</div>
+<script>
+function showQ(id,el){
+  document.querySelectorAll('.sb').forEach(b=>b.classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  el.classList.add('on');
+}
+new Chart(document.getElementById('tc'),{type:'doughnut',data:{labels:['Recycle','Compost','Landfill'],datasets:[{data:[16675,16652,16605],backgroundColor:['#1D9E75','#C0430A','#2980B9'],borderWidth:3,borderColor:'#fff'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}}}});
+new Chart(document.getElementById('dc'),{type:'bar',data:{labels:['Oct 13','Oct 4','Oct 17','Oct 12','Oct 5','Oct 20','Oct 21','Oct 15','Oct 10','Oct 9'],datasets:[{data:[1730,1694,1691,1684,1684,1679,1667,1664,1661,1660],backgroundColor:['#C0430A','#1B3A5C','#1B3A5C','#1B3A5C','#1B3A5C','#1B3A5C','#1B3A5C','#1B3A5C','#1B3A5C','#1B3A5C'],borderRadius:4,barPercentage:.7}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.raw.toLocaleString()+' events'}}},scales:{x:{ticks:{font:{size:10}},grid:{display:false}},y:{ticks:{font:{size:10},callback:v=>v.toLocaleString()},grid:{color:'#f0f0f0'}}}}});
+new Chart(document.getElementById('hc'),{type:'line',data:{labels:['12am','1','2','3','4','5','6','7','8','9','10','11','12pm','1','2','3','4','5','6','7','8','9','10','11'],datasets:[{data:[2112,2147,2153,2103,2121,2072,1989,2085,2051,2111,2073,2082,2084,2052,2133,2057,2002,2125,2082,2040,2129,2068,2088,1973],borderColor:'#1B3A5C',backgroundColor:'rgba(27,58,92,0.08)',borderWidth:2.5,pointRadius:3,fill:true,tension:.4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{font:{size:10}},grid:{display:false}},y:{ticks:{font:{size:10},callback:v=>v.toLocaleString()},grid:{color:'#f0f0f0'}}}}});
+</script>
+</body>
+</html>
